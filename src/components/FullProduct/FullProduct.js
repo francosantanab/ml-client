@@ -18,7 +18,6 @@ class FullProduct extends Component {
     componentDidMount()
     {
         this.search();
-        Store.removeAllListeners();
     }
 
     componentWillUnmount() {
@@ -47,7 +46,7 @@ class FullProduct extends Component {
         {
             let state = null;
 
-            if (this.state.loadedItem.item.condition === 'new'){
+            if (this.state.loadedItem.item.condition === 'new') {
                 state = 'Nuevo';
             }else {
                 state = 'Usado';
@@ -57,10 +56,10 @@ class FullProduct extends Component {
                 <div className="container">
                     <article className="FullProduct">
                         <div className="row product-wrap">
-                            <div className="col-12 col-sm-8 product-image">
+                            <div className="col-12 col-sm-9 product-image">
                                 <img src={this.state.loadedItem.item.picture} alt={this.state.loadedItem.item.title} id="img-picture"/>
                             </div>
-                            <div className="col-12 col-sm-4 product-resume">
+                            <div className="col-12 col-sm-3 product-resume">
                                 <span className="item-condition">{ state } - { this.state.loadedItem.item.sold_quantity } vendidos</span>
                                 <h1>{this.state.loadedItem.item.title}</h1>
                                 <span className="product-price">{this.state.loadedItem.item.price.currency} {this.state.loadedItem.item.price.amount}</span>
@@ -68,8 +67,8 @@ class FullProduct extends Component {
                             </div>
                         </div>
 
-                        <div className="row product-wrap">
-                            <div className="col-12 col-sm-8 product-description">
+                        <div className="row product-description">
+                            <div className="col-12 col-sm-8 ">
                                 <h2>Descripción del producto</h2>
                                 <p>{this.state.loadedItem.item.description}</p>
                             </div>

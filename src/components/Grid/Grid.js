@@ -8,6 +8,7 @@ import URLSearchParams  from 'url-search-params';
 import Store from '../../stores/stores';
 import Post from '../Post/Post.js';
 import Path from '../Path/Path';
+import utils from '../../utils/utils';
 
 class Grid extends Component {
 
@@ -38,7 +39,7 @@ class Grid extends Component {
 
         if ((this.state.posts.length === 0) || search)
         {
-            axios.get('http://localhost:4000/api/items?search='.concat(param)).then(resp =>{
+            axios.get(`${utils.getUrlApi()}?search=${param}`).then(resp =>{
                 this.setState({ posts: resp.data.items, error: false, categories: resp.data.categories });
                 Store.setCategory(resp.data.categories);
             }).catch(err => {
@@ -56,7 +57,6 @@ class Grid extends Component {
                 return <Post key={post.id} post={post} />;
             });
         }
-
         return (
             <div className="container">
                 <Path categories={this.state.categories} />

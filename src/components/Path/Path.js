@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash'
 import Store from '../../stores/stores';
+import BreadcrumbItem from '../BreadcrumbItem/BreadcrumbItem';
 
 // Styles
 import './Path.scss';
@@ -28,23 +29,29 @@ class Path extends Component {
     
 
     render() {
-        let path = '';
+        let path = [];
         if (this.state.categories)
         {
             _.each(this.state.categories, (cat, index) => {
+                let span = document.createElement('span');
                 if (index === 0)
                 {
-                    path = cat;
+                    span.innerHTML = cat;
                 }else
                 {
-                    path = path + '>' + cat;
+                    span.innerHTML = ` >  ${cat}`;
                 }
+                path.push(span);
             });
         }
 
+        let paths = path.map((span, index )=> {
+            return <BreadcrumbItem  key={index} bread={span}/>;
+        })
+
         return (
             <section className="path">
-                <span>{path}</span>
+            {paths}
             </section>
         )
     }

@@ -2,6 +2,7 @@
 
 .FullProduct {
     background-color: $white;
+    padding-bottom: 32px;
     margin-bottom: 32px;
 
     h1, h2 {
@@ -44,22 +45,26 @@
                 float: left;
                 font-size: 16px;
                 padding: 10px;
-                width: calc(100% - 32px);
+                border-radius: 4px; 
+                width: 100%;
             }
         }
 
-        .product-description {
-            p {
-                font-size: 16px;
-                color: $grey-medium;
-            }
+    }
 
-            h2 {
-                font-size: 28px;
-                padding: 0px 0px 32px 0px;
-            }
+    .product-description {
+        padding: 0px 0px 0px 32px;
+
+        p {
+            font-size: 16px;
+            color: $grey-medium;
+            padding: 0;
         }
 
+        h2 {
+            font-size: 28px;
+            padding: 0px 0px 32px 0px;
+        }
     }
 }
 
