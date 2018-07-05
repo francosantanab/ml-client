@@ -58,7 +58,7 @@ class Grid extends Component {
             });
         }
         return (
-            <div className="container">
+            <div className="container grid">
                 <Path categories={this.state.categories} />
                 {posts}
             </div>

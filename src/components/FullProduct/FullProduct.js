@@ -61,7 +61,7 @@ class FullProduct extends Component {
                                 <span className="item-condition">{ state } - { this.state.loadedItem.item.sold_quantity } vendidos</span>
                                 <h1>{this.state.loadedItem.item.title}</h1>
                                 <span className="product-price">{this.state.loadedItem.item.price.currency} {this.state.loadedItem.item.price.amount}
-                                  <span className="price-decimals"> {(this.state.loadedItem.item.price.decimals != 0) ? this.state.loadedItem.item.price.decimals : null}</span>
+                                  <span className="price-decimals"> {(this.state.loadedItem.item.price.decimals !== 0) ? this.state.loadedItem.item.price.decimals : null}</span>
                                 </span>
                                 <button className="buy-now">Comprar</button>
                             </div>

@@ -4,3 +4,13 @@ body {
   font-family: sans-serif;
   background: transparent !important;
 }
+
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important; 
+}

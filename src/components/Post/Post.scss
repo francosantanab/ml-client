@@ -69,11 +69,14 @@
         }
     }
 
-    .row::after {
-        content: "";
-        display: block;
-        margin: 0 auto;
-        width: 94.5%;
-        border-bottom: 1px solid $grey-light;
-    }
+}
+
+.grid {
+  .row::after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      width: 94.5%;
+      border-bottom: 1px solid $grey-light;
+  }
 }
