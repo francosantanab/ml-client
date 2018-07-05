@@ -12,7 +12,7 @@ const Post = (props) => (
             </div>
 
             <div className="col-12 col-sm-7 col-md-7 info-container">
-                <span className="price" title="precio">{ props.post.price.currency  } {props.post.price.amount}</span>
+                <span className="price" title="precio">{ props.post.price.currency  } {props.post.price.amount} <span className="price-decimals"> {(props.post.price.decimals != 0) ? props.post.price.decimals : null}</span></span>
                 { props.post.free_shipping ? <span className="free-shipping" title="Envio Gratis"></span> : null }
 
                 <span className="main-title">
@@ -21,7 +21,7 @@ const Post = (props) => (
             </div>
 
             <div className="d-none d-sm-block col-sm-2 col-md-2 right-content">
-                <span>Capital Federal</span>
+                <span>{props.post.seller_state}</span>
             </div>
         </section>
 

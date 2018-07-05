@@ -8,7 +8,6 @@ import './App.scss';
 class App extends Component {
   render() {
     return (
-      
         <BrowserRouter>
           <div className="App">
             <Route path="/" component={Search} />
@@ -16,7 +15,6 @@ class App extends Component {
             <Route path="/items/:id" component={FullProduct} />
           </div>
         </BrowserRouter>
-      
     );
   }
 }

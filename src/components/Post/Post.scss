@@ -1,9 +1,9 @@
 @import '../../scss/variables.scss';
 
-.item-wrapper 
+.item-wrapper
 {
     background-color: $white;
-    
+
     @media only screen and (max-width: 768px) {
         text-align: center;
     }
@@ -28,6 +28,15 @@
             padding: 16px 0px 32px;
         }
 
+        .price-decimals {
+          font-size: 12px;
+          height: 20px;
+          left: -5px;
+          line-height: 1;
+          position: relative;
+          top: -8px;
+        }
+
         .free-shipping::after {
             content: url('../../assets/images/ic_shipping.png');
             padding-left: 5px;
@@ -38,20 +47,20 @@
             padding: 10px 0px 20px 10px;
         }
     }
-    
+
     .main-title {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: normal;
         display: inherit;
 
-        a{
+        a {
             color: inherit;
         }
     }
 
     .right-content {
         padding: 16px;
-        
+
         span {
             font-size: 12px;
             color: $grey-medium;
@@ -61,14 +70,10 @@
     }
 
     .row::after {
-        content: ""; /* This is necessary for the pseudo element to work. */ 
-        display: block; /* This will put the pseudo element on its own line. */
-        margin: 0 auto; /* This will center the border. */
-        width: 94.5%; /* Change this to whatever width you want. */
-        border-bottom: 1px solid $grey-light; /* This creates the border. Replace black with whatever color you want. */
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 94.5%;
+        border-bottom: 1px solid $grey-light;
     }
 }
-
-
-
-

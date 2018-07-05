@@ -12,7 +12,7 @@ import utils from '../../utils/utils';
 
 class Grid extends Component {
 
-    componentDidMount() 
+    componentDidMount()
     {
         Store.on('search',  () => {
             this.search(true);
@@ -39,7 +39,7 @@ class Grid extends Component {
 
         if ((this.state.posts.length === 0) || search)
         {
-            axios.get(`${utils.getUrlApi()}?search=${param}`).then(resp =>{
+            axios.get(`${utils.getUrlApi()}?q=${param}`).then(resp => {
                 this.setState({ posts: resp.data.items, error: false, categories: resp.data.categories });
                 Store.setCategory(resp.data.categories);
             }).catch(err => {
@@ -54,7 +54,7 @@ class Grid extends Component {
         if (!this.state.error)
         {
             posts = this.state.posts.map(post => {
-                return <Post key={post.id} post={post} />;
+                  return <Post key={post.id} post={post} />;
             });
         }
         return (

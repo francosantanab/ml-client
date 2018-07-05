@@ -11,9 +11,9 @@ import utils from '../../utils/utils';
 
 class FullProduct extends Component {
     state = {
-        loadedItem: null
+        loadedItem: null,
+        error: false
     }
-
 
     componentDidMount()
     {
@@ -32,20 +32,18 @@ class FullProduct extends Component {
                         this.setState( { loadedItem: response.data } );
                         document.title = response.data.item.title;
                     }).catch(error => {
-
+                        this.setState( { error: true } );
                     });
             }
         }
     }
 
     render () {
-
         let product = <p style={{ textAlign: 'center', color: '#999999', padding: '20px' }}>Cargando ...</p>;
 
         if ( this.state.loadedItem )
         {
             let state = null;
-
             if (this.state.loadedItem.item.condition === 'new') {
                 state = 'Nuevo';
             }else {
@@ -62,21 +60,29 @@ class FullProduct extends Component {
                             <div className="col-12 col-sm-3 product-resume">
                                 <span className="item-condition">{ state } - { this.state.loadedItem.item.sold_quantity } vendidos</span>
                                 <h1>{this.state.loadedItem.item.title}</h1>
-                                <span className="product-price">{this.state.loadedItem.item.price.currency} {this.state.loadedItem.item.price.amount}</span>
+                                <span className="product-price">{this.state.loadedItem.item.price.currency} {this.state.loadedItem.item.price.amount}
+                                  <span className="price-decimals"> {(this.state.loadedItem.item.price.decimals != 0) ? this.state.loadedItem.item.price.decimals : null}</span>
+                                </span>
                                 <button className="buy-now">Comprar</button>
                             </div>
                         </div>
 
                         <div className="row product-description">
-                            <div className="col-12 col-sm-8 ">
+                            <div className="col-12 col-sm-8">
                                 <h2>Descripción del producto</h2>
-                                <p>{this.state.loadedItem.item.description}</p>
+                                <p>{this.state.loadedItem.item.description}></p>
                             </div>
                         </div>
                     </article>
                 </div>
             );
         }
+
+        if (this.state.error)
+        {
+          product = <p style={{ textAlign: 'center', color: '#999999', padding: '20px' }}>Algo ha ocurrido, intente nuevamente.</p>;
+        }
+
         return (
             <div className="container">
                 <Path />

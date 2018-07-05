@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import _ from 'lodash'
 import Store from '../../stores/stores';
+
+//Component
 import BreadcrumbItem from '../BreadcrumbItem/BreadcrumbItem';
 
 // Styles
 import './Path.scss';
-
 
 class Path extends Component {
     constructor() {
@@ -26,7 +27,7 @@ class Path extends Component {
     componentWillUnmount() {
         Store.removeAllListeners();
     }
-    
+
 
     render() {
         let path = [];
