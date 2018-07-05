@@ -5,10 +5,8 @@ import './Post.scss';
 const Post = (props) => (
 
         <section className="row item-wrapper" onClick={props.clicked}>
-            <div>
-                <div className="image-content">
-                    <img src={props.post.picture} width="180" height="180" alt={props.post.title}/>
-                </div>
+            <div className="image-content">
+                <img src={props.post.picture} width="180" height="180" alt={props.post.title}/>
             </div>
 
             <div className="col-12 col-sm-7 col-md-7 info-container">
